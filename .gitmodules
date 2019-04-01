@@ -1,0 +1,3 @@
+[submodule "web/app/themes/whatjackhasmade"]
+	path = web/app/themes/whatjackhasmade
+	url = https://github.com/whatjackhasmade/WJHM-Wordpress-Theme.git
