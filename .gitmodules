@@ -1,3 +1,9 @@
 [submodule "web/app/themes/whatjackhasmade"]
 	path = web/app/themes/whatjackhasmade
 	url = https://github.com/whatjackhasmade/WJHM-Wordpress-Theme.git
+[submodule "web/app/mu-plugins/wp-sync-db-media-files"]
+	path = web/app/mu-plugins/wp-sync-db-media-files
+	url = https://github.com/wp-sync-db/wp-sync-db-media-files.git
+[submodule "web/app/mu-plugins/wp-sync-db"]
+	path = web/app/mu-plugins/wp-sync-db
+	url = https://github.com/wp-sync-db/wp-sync-db.git
