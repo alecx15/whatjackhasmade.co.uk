@@ -4,8 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "064de414b70620c49048b15d7a806895",
+    "content-hash": "f1692863f70ff2ba49d91229b843c184",
     "packages": [
+        {
+            "name": "advanced-custom-fields/advanced-custom-fields-pro",
+            "version": "5.8.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.0",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "pivvenit/acf-pro-installer": "^2"
+            },
+            "type": "wordpress-muplugin",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Elliot Condon",
+                    "homepage": "http://www.elliotcondon.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "PivvenIT",
+                    "homepage": "https://pivvenit.nl",
+                    "role": "Composer Repository maintainer"
+                }
+            ],
+            "description": "Advanced Custom Fields PRO",
+            "homepage": "https://www.advancedcustomfields.com/"
+        },
         {
             "name": "composer/installers",
             "version": "v1.6.0",
@@ -218,6 +249,66 @@
                 "type"
             ],
             "time": "2015-07-25T16:39:46+00:00"
+        },
+        {
+            "name": "pivvenit/acf-pro-installer",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pivvenit/acf-pro-installer.git",
+                "reference": "a6370358710c05e34033b170958c6ac93bc84935"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pivvenit/acf-pro-installer/zipball/a6370358710c05e34033b170958c6ac93bc84935",
+                "reference": "a6370358710c05e34033b170958c6ac93bc84935",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "ext-json": "*",
+                "php": "^7.2",
+                "vlucas/phpdotenv": "^3.0"
+            },
+            "replace": {
+                "philippbaschke/acf-pro-installer": "1.0.2"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^8.0",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PivvenIT\\Composer\\Installers\\ACFPro\\ACFProInstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "PivvenIT\\Composer\\Installers\\ACFPro\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sander Klock",
+                    "homepage": "https://pivvenit.nl"
+                }
+            ],
+            "description": "An install helper for Advanced Custom Fields PRO",
+            "keywords": [
+                "acf",
+                "composer",
+                "env",
+                "plugin",
+                "pro",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2019-03-03T21:20:15+00:00"
         },
         {
             "name": "roots/wordpress",

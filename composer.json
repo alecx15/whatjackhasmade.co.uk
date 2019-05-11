@@ -35,6 +35,10 @@
 		{
 			"type": "composer",
 			"url": "https://wpackagist.org"
+		},
+		{
+			"type": "composer",
+			"url": "https://pivvenit.github.io/acf-composer-bridge/composer/v2/wordpress-muplugin/"
 		}
 	],
 	"require": {
@@ -45,6 +49,7 @@
 		"roots/wordpress": "5.2",
 		"roots/wp-config": "1.0.0",
 		"roots/wp-password-bcrypt": "1.0.0",
+		"advanced-custom-fields/advanced-custom-fields-pro": "^5.8",
 		"wpackagist-plugin/duplicate-post": "^3.2.2",
 		"wpackagist-plugin/enhanced-media-library": "^2.7",
 		"wpackagist-plugin/timber-library": "^1.9",
