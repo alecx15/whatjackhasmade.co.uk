@@ -16,10 +16,6 @@ function convert_content($content)
 
     foreach ($content as &$block) {
         if ($block['attrs'] && function_exists('acf_setup_postdata')) {
-            // Setup postdata allowing get_field() to work.
-            acf_setup_postdata($block['attrs']['data'], $block['attrs']['id'], true);
-
-            // get_fields()
             if ($block['blockName'] === "acf/testimonials"):
                 $testimonials = $block['attrs']['data']['testimonials'];
 
@@ -33,9 +29,6 @@ function convert_content($content)
                     $block['attrs']['data']['testimonials'] = $testimonialObjects;
                 endif;
             endif;
-
-            // reset_loop()
-            acf_reset_postdata($block['attrs']['id']);
         }
     }
 
