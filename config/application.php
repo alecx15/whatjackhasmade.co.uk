@@ -100,6 +100,15 @@ Config::define('DISALLOW_FILE_MODS', true);
 Config::define('WP_DEBUG_DISPLAY', false);
 Config::define('SCRIPT_DEBUG', false);
 ini_set('display_errors', 0);
+//Enable error logging.
+@ini_set('log_errors', 'On');
+@ini_set('error_log', 'C:/xampp/htdocs/whatjackhasmade.co.uk/web/app/elm-error-logs/php-errors.log');
+
+//Don't show errors to site visitors.
+@ini_set('display_errors', 'Off');
+if (!defined('WP_DEBUG_DISPLAY')) {
+    Config::define('WP_DEBUG_DISPLAY', false);
+}
 
 /**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
