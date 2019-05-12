@@ -15,7 +15,7 @@ function convert_content($content)
     $content = getACFImages($content);
 
     foreach ($content as &$block) {
-        if ($block['attrs'] && function_exists('acf_setup_postdata')) {
+        if ($block['attrs']) {
             if ($block['blockName'] === "acf/testimonials"):
                 $testimonials = $block['attrs']['data']['testimonials'];
 
