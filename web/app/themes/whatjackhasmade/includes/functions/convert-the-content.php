@@ -15,7 +15,7 @@ function convert_content($content)
     $content = getACFImages($content);
 
     foreach ($content as &$block) {
-        if ($block['attrs'] && acf_setup_postdata()) {
+        if ($block['attrs'] && function_exists('acf_setup_postdata')) {
             // Setup postdata allowing get_field() to work.
             acf_setup_postdata($block['attrs']['data'], $block['attrs']['id'], true);
 
