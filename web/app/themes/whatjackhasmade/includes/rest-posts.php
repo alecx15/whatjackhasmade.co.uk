@@ -15,6 +15,49 @@ add_action('rest_api_init', function () {
     ));
 });
 
+function fallbackString($val)
+{
+    if (!$val) {
+        return "";
+    }
+
+    return $val;
+}
+
+function relatedPosts($posts)
+{
+    $postsObjects = [];
+    $postObject = new stdClass();
+
+    if (is_array($posts) || is_object($posts)):
+        foreach ($posts as $value) {
+            $id = $value->ID;
+
+            if (get_post_status($id) === 'publish'):
+                $postObject = new stdClass();
+                $postObject->id = $id;
+                $postObject->date = fallbackString(get_the_time('c'));
+                $postObject->excerpt = fallbackString(get_post_meta($id, '_yoast_wpseo_metadesc', true));
+                $postObject->imageXS = fallbackString(get_the_post_thumbnail_url($id, 'featured_xs'));
+                $postObject->imageSM = fallbackString(get_the_post_thumbnail_url($id, 'featured_sm'));
+                $postObject->imageMD = fallbackString(get_the_post_thumbnail_url($id, 'featured_md'));
+                $postObject->imageLG = fallbackString(get_the_post_thumbnail_url($id, 'featured_lg'));
+                $postObject->imageXL = fallbackString(get_the_post_thumbnail_url($id, 'featured_xl'));
+                $postObject->imageFull = fallbackString(get_the_post_thumbnail_url());
+                $postObject->link = fallbackString(get_the_permalink());
+                $postObject->slug = fallbackString(get_post_field('post_name', $id));
+                $postObject->title = fallbackString(get_the_title($id));
+
+                $postsObjects[] = $postObject;
+            endif;
+        }
+    else :
+        $postsObjects[] = $postObject;
+    endif;
+
+    return $postsObjects;
+}
+
 function rest_posts($data)
 {
     $params = $data->get_params();
@@ -46,30 +89,29 @@ function rest_posts($data)
         $insightItems = array();
         while ($loop->have_posts()): $loop->the_post();
             $the_content = wpautop(get_the_content());
+            $id = get_the_ID();
             array_push(
                 $insightItems, array(
                     'content' => $the_content,
                     'date' => get_the_time('c'),
-                    'excerpt' => get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true),
-                    'id' => get_the_ID(),
-                    'imageLargest' => get_the_post_thumbnail_url(get_the_ID(), 'largest'),
-                    'imageDesktop' => get_the_post_thumbnail_url(get_the_ID(), 'desktop'),
-                    'imageLaptop' => get_the_post_thumbnail_url(get_the_ID(), 'laptop'),
-                    'imageTablet' => get_the_post_thumbnail_url(get_the_ID(), 'tablet'),
-                    'imageMobile' => get_the_post_thumbnail_url(get_the_ID(), 'mobile'),
-                    'thumbnailTall' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail-tall'),
-                    'thumbnailDefault' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail-default'),
-                    'thumbnailSmall' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail-small'),
-                    'imageFull' => get_the_post_thumbnail_url(),
-                    'link' => get_the_permalink(),
-                    'seoTitle' => get_post_meta(get_the_ID(), '_yoast_wpseo_title', true),
-                    'slug' => get_post_field('post_name'),
+                    'excerpt' => get_post_meta($id, '_yoast_wpseo_metadesc', true),
+                    'id' => $id,
+                    'imageXS' => fallbackString(get_the_post_thumbnail_url($id, 'featured_xs')),
+                    'imageSM' => fallbackString(get_the_post_thumbnail_url($id, 'featured_sm')),
+                    'imageMD' => fallbackString(get_the_post_thumbnail_url($id, 'featured_md')),
+                    'imageLG' => fallbackString(get_the_post_thumbnail_url($id, 'featured_lg')),
+                    'imageXL' => fallbackString(get_the_post_thumbnail_url($id, 'featured_xl')),
+                    'imageFull' => fallbackString(get_the_post_thumbnail_url($id)),
+                    'link' => fallbackString(get_the_permalink()),
+                    'related' => relatedPosts(get_field('related_posts')),
+                    'seoTitle' => get_post_meta($id, '_yoast_wpseo_title', true),
+                    'slug' => fallbackString(get_post_field('post_name')),
                     'title' => html_entity_decode(get_the_title()),
                     'yoast' => array(
-                        'description' => get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true),
-                        'image' => get_the_post_thumbnail_url(get_the_ID(), 'featured_lg'),
+                        'description' => get_post_meta($id, '_yoast_wpseo_metadesc', true),
+                        'image' => get_the_post_thumbnail_url($id, 'featured_lg'),
                         'slug' => get_post_field('post_name'),
-                        'title' => get_post_meta(get_the_ID(), '_yoast_wpseo_title', true),
+                        'title' => get_post_meta($id, '_yoast_wpseo_title', true),
                     ),
                 )
             );
