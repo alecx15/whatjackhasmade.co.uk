@@ -167,6 +167,41 @@ class StarterSite extends Timber\Site
                 ),
             ));
 
+        register_taxonomy_for_object_type('category', 'journal');
+        register_taxonomy_for_object_type('post_tag', 'journal');
+        register_post_type('journal',
+            array(
+                'labels' => array(
+                    'name' => __('Journal', 'journal'),
+                    'singular_name' => __('Journal', 'journal'),
+                    'add_new' => __('Add New', 'journal'),
+                    'add_new_item' => __('Add New Journal', 'journal'),
+                    'edit' => __('Edit', 'journal'),
+                    'edit_item' => __('Edit Journal', 'journal'),
+                    'new_item' => __('New Journal', 'journal'),
+                    'view' => __('View Journal', 'journal'),
+                    'view_item' => __('View Journal', 'journal'),
+                    'search_items' => __('Search Journal', 'journal'),
+                    'not_found' => __('No Journals found', 'journal'),
+                    'not_found_in_trash' => __('No Journals found in Trash', 'journal'),
+                ),
+                'public' => true,
+                'hierarchical' => true,
+                'has_archive' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                ),
+                'show_in_rest' => true,
+                'menu_icon' => 'dashicons-images-alt2',
+                'can_export' => true,
+                'taxonomies' => array(
+                    'post_tag',
+                    'category',
+                ),
+            ));
+
         register_taxonomy_for_object_type('category', 'review');
         register_taxonomy_for_object_type('post_tag', 'review');
         register_post_type('review',
