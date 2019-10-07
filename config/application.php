@@ -94,6 +94,11 @@ Config::define('DISALLOW_FILE_EDIT', true);
 // Disable plugin and theme updates and installation from the admin
 Config::define('DISALLOW_FILE_MODS', true);
 
+Config::define('AS3CF_SETTINGS', serialize(array(
+    'provider' => 'gcp',
+    'key-file-path' => __DIR__ . '/WhatJackHasMade-9df0ef3e366c.json',
+)));
+
 /**
  * Debugging Settings
  */
