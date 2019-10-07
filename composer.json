@@ -50,6 +50,7 @@
 		"roots/wp-config": "1.0.0",
 		"roots/wp-password-bcrypt": "1.0.0",
 		"advanced-custom-fields/advanced-custom-fields-pro": "^5.8",
+		"wpackagist-plugin/amazon-s3-and-cloudfront": "^2.1.0",
 		"wpackagist-plugin/duplicate-post": "^3.2.2",
 		"wpackagist-plugin/enhanced-media-library": "^2.7",
 		"wpackagist-plugin/error-log-monitor": "^1.6.6",
@@ -67,6 +68,7 @@
 		"installer-paths": {
 			"web/app/mu-plugins/{$name}/": [
 				"type:wordpress-muplugin",
+				"wpackagist-plugin/amazon-s3-and-cloudfront",
 				"wpackagist-plugin/duplicate-post",
 				"wpackagist-plugin/enhanced-media-library",
 				"wpackagist-plugin/error-log-monitor",
