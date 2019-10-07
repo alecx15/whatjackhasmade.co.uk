@@ -189,5 +189,6 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
-
 # End of https://www.gitignore.io/api/node,macos,windows,wordpress
+
+config/WhatJackHasMade-fc587c068a5a.json
