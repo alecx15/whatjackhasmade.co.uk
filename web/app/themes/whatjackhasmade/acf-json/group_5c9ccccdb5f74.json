@@ -146,5 +146,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554366551
+    "show_in_graphql": 1,
+    "graphql_field_name": "ACFTestimonialsBlockFields",
+    "modified": 1573561723
 }

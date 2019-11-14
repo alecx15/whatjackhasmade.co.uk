@@ -1,12 +1,12 @@
 {
-    "key": "group_5c9797e8eb903",
-    "title": "Block: Github",
+    "key": "group_5c9741d09b087",
+    "title": "Post Type: Review",
     "fields": [
         {
-            "key": "field_5c9797ee4ca74",
-            "label": "Content",
-            "name": "content",
-            "type": "wysiwyg",
+            "key": "field_5c9741dd4a4e7",
+            "label": "Rating",
+            "name": "rating",
+            "type": "range",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,18 +16,19 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "min": 1,
+            "max": 10,
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/github"
+                "value": "review"
             }
         ]
     ],
@@ -40,6 +41,6 @@
     "active": 1,
     "description": "",
     "show_in_graphql": 1,
-    "graphql_field_name": "ACFGithubBlockFields",
-    "modified": 1573561684
+    "graphql_field_name": "ReviewFields",
+    "modified": 1573561788
 }

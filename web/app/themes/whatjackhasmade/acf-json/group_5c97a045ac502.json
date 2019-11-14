@@ -59,5 +59,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1553440872
+    "show_in_graphql": 1,
+    "graphql_field_name": "ACFDribbbleBlockFields",
+    "modified": 1573561674
 }

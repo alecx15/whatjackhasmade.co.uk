@@ -41,7 +41,9 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "return_format": "array",
+            "preview_size": "medium"
         },
         {
             "key": "field_5cc36b6276244",
@@ -511,5 +513,7 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1556360300
+    "show_in_graphql": 1,
+    "graphql_field_name": "CaseStudyFields",
+    "modified": 1573561817
 }

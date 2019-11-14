@@ -40,7 +40,7 @@
             "key": "field_5c9bc20dc99d0",
             "label": "Media",
             "name": "media",
-            "type": "image",
+            "type": "file",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -50,13 +50,8 @@
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "thumbnail",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
             "min_size": "",
-            "max_width": "",
-            "max_height": "",
             "max_size": "",
             "mime_types": ""
         },
@@ -130,5 +125,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554221545
+    "show_in_graphql": 1,
+    "graphql_field_name": "ACFHeroBlockFields",
+    "modified": 1573561695
 }

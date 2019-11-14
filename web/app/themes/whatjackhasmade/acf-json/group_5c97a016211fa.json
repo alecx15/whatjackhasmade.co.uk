@@ -59,5 +59,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1553440828
+    "show_in_graphql": 1,
+    "graphql_field_name": "ACFPresentationsBlockFields",
+    "modified": 1573561705
 }

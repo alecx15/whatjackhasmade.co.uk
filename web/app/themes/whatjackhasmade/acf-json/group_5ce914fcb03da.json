@@ -19,5 +19,7 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1558779151
+    "show_in_graphql": 1,
+    "graphql_field_name": "ACFYouTubeChannelBlockFields",
+    "modified": 1573561753
 }
