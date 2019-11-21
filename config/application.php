@@ -99,21 +99,13 @@ Config::define('AS3CF_SETTINGS', serialize(array(
     'key-file-path' => __DIR__ . '/WhatJackHasMade-fc587c068a5a.json',
 )));
 
+
 /**
  * Debugging Settings
  */
 Config::define('WP_DEBUG_DISPLAY', false);
 Config::define('SCRIPT_DEBUG', false);
-ini_set('display_errors', 0);
-//Enable error logging.
-@ini_set('log_errors', 'On');
-@ini_set('error_log', $webroot_dir . '/app/elm-error-logs/php-errors.log');
-
-//Don't show errors to site visitors.
-@ini_set('display_errors', 'Off');
-if (!defined('WP_DEBUG_DISPLAY')) {
-    Config::define('WP_DEBUG_DISPLAY', false);
-}
+ini_set('display_errors', '0');
 
 /**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer

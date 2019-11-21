@@ -95,7 +95,7 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "vlucas/phpdotenv": "^3.4.0",
-    "wp-graphql/wp-graphql": "^0.3.6",
+    "wp-graphql/wp-graphql": "^0.4.1",
     "wp-graphql/wp-graphql-acf": "^0.2.0",
     "wp-graphql/wp-graphiql": "1.0.0",
     "ashhitch/wp-graphql-yoast-seo": "1.0.0",
