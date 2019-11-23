@@ -51,180 +51,215 @@ class StarterSite extends Timber\Site
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
         remove_filter('the_content', 'wpautop');
-				remove_filter('the_excerpt', 'wpautop');
+        remove_filter('the_excerpt', 'wpautop');
         add_filter('graphql_connection_max_query_amount', array($this, 'wpgraphql_tweaks'), 10, 5);
         add_filter('post_thumbnail_html', array($this, 'remove_image_size_attributes'));
         add_filter('image_send_to_editor', array($this, 'remove_image_size_attributes'));
         apply_filters('rocket_cache_reject_wp_rest_api', false);
         parent::__construct();
-		}
-
+    }
 
     public function wpgraphql_tweaks($amount, $source, $args, $context, $info)
     {
-			$amount = 1000;
-			return $amount;
+        $amount = 1000;
+        return $amount;
     }
 
     /** This is where you can register custom post types. */
-   	public function register_post_types()
-		{
-			register_taxonomy_for_object_type('category', 'case');
-			register_taxonomy_for_object_type('post_tag', 'case');
-			register_post_type('case',
-					array(
-							'labels' => array(
-									'name' => __('Case Study', 'case'),
-									'singular_name' => __('Case Study', 'case'),
-									'add_new' => __('Add New', 'case'),
-									'add_new_item' => __('Add New Case Study', 'case'),
-									'edit' => __('Edit', 'case'),
-									'edit_item' => __('Edit Case Study', 'case'),
-									'new_item' => __('New Case Study', 'case'),
-									'view' => __('View Case Study', 'case'),
-									'view_item' => __('View Case Study', 'case'),
-									'search_items' => __('Search Case Study', 'case'),
-									'not_found' => __('No Case Studies found', 'case'),
-									'not_found_in_trash' => __('No Case Studies found in Trash', 'case'),
-							),
-							'public' => true,
-							'hierarchical' => true,
-							'has_archive' => true,
-							'supports' => array(
-									'title',
-									'editor',
-									'thumbnail',
-							),
-							'show_in_rest' => true,
-							'menu_icon' => 'dashicons-media-document',
-							'can_export' => true,
-							'taxonomies' => array(
-									'post_tag',
-									'category',
-							),
-							'rewrite' => array(
-								'slug' => '/',
-								'with_front' => false
-							),
-							'show_in_graphql' => true,
-							'graphql_single_name' => 'CaseStudy',
-							'graphql_plural_name' => 'CaseStudies',
-					));
+    public function register_post_types()
+    {
+        register_taxonomy_for_object_type('category', 'case');
+        register_taxonomy_for_object_type('post_tag', 'case');
+        register_post_type('case',
+            array(
+                'labels' => array(
+                    'name' => __('Case Study', 'case'),
+                    'singular_name' => __('Case Study', 'case'),
+                    'add_new' => __('Add New', 'case'),
+                    'add_new_item' => __('Add New Case Study', 'case'),
+                    'edit' => __('Edit', 'case'),
+                    'edit_item' => __('Edit Case Study', 'case'),
+                    'new_item' => __('New Case Study', 'case'),
+                    'view' => __('View Case Study', 'case'),
+                    'view_item' => __('View Case Study', 'case'),
+                    'search_items' => __('Search Case Study', 'case'),
+                    'not_found' => __('No Case Studies found', 'case'),
+                    'not_found_in_trash' => __('No Case Studies found in Trash', 'case'),
+                ),
+                'public' => true,
+                'hierarchical' => true,
+                'has_archive' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                ),
+                'show_in_rest' => true,
+                'menu_icon' => 'dashicons-media-document',
+                'can_export' => true,
+                'taxonomies' => array(
+                    'post_tag',
+                    'category',
+                ),
+                'rewrite' => array(
+                    'slug' => '/',
+                    'with_front' => false,
+                ),
+                'show_in_graphql' => true,
+                'graphql_single_name' => 'CaseStudy',
+                'graphql_plural_name' => 'CaseStudies',
+            ));
 
-			register_taxonomy_for_object_type('category', 'event');
-			register_taxonomy_for_object_type('post_tag', 'event');
-			register_post_type('event',
-					array(
-							'labels' => array(
-									'name' => __('Event', 'event'),
-									'singular_name' => __('Event', 'event'),
-									'add_new' => __('Add New', 'event'),
-									'add_new_item' => __('Add New Event', 'event'),
-									'edit' => __('Edit', 'event'),
-									'edit_item' => __('Edit Event', 'event'),
-									'new_item' => __('New Event', 'event'),
-									'view' => __('View Event', 'event'),
-									'view_item' => __('View Event', 'event'),
-									'search_items' => __('Search Event', 'event'),
-									'not_found' => __('No Events found', 'event'),
-									'not_found_in_trash' => __('No Events found in Trash', 'event'),
-							),
-							'public' => true,
-							'hierarchical' => true,
-							'has_archive' => true,
-							'supports' => array(
-									'title',
-									'editor',
-									'thumbnail',
-							),
-							'show_in_rest' => true,
-							'menu_icon' => 'dashicons-tickets',
-							'can_export' => true,
-							'taxonomies' => array(
-									'post_tag',
-									'category',
-							),
-							'show_in_graphql' => true,
-							'graphql_single_name' => 'Event',
-							'graphql_plural_name' => 'Events',
-					));
+        register_taxonomy_for_object_type('category', 'event');
+        register_taxonomy_for_object_type('post_tag', 'event');
+        register_post_type('event',
+            array(
+                'labels' => array(
+                    'name' => __('Event', 'event'),
+                    'singular_name' => __('Event', 'event'),
+                    'add_new' => __('Add New', 'event'),
+                    'add_new_item' => __('Add New Event', 'event'),
+                    'edit' => __('Edit', 'event'),
+                    'edit_item' => __('Edit Event', 'event'),
+                    'new_item' => __('New Event', 'event'),
+                    'view' => __('View Event', 'event'),
+                    'view_item' => __('View Event', 'event'),
+                    'search_items' => __('Search Event', 'event'),
+                    'not_found' => __('No Events found', 'event'),
+                    'not_found_in_trash' => __('No Events found in Trash', 'event'),
+                ),
+                'public' => true,
+                'hierarchical' => true,
+                'has_archive' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                ),
+                'show_in_rest' => true,
+                'menu_icon' => 'dashicons-tickets',
+                'can_export' => true,
+                'taxonomies' => array(
+                    'post_tag',
+                    'category',
+                ),
+                'show_in_graphql' => true,
+                'graphql_single_name' => 'Event',
+                'graphql_plural_name' => 'Events',
+            ));
 
-			register_taxonomy_for_object_type('category', 'inspiration');
-			register_taxonomy_for_object_type('post_tag', 'inspiration');
-			register_post_type('inspiration',
-					array(
-							'labels' => array(
-									'name' => __('Inspiration', 'inspiration'),
-									'singular_name' => __('Inspiration', 'inspiration'),
-									'add_new' => __('Add New', 'inspiration'),
-									'add_new_item' => __('Add New Inspiration', 'inspiration'),
-									'edit' => __('Edit', 'inspiration'),
-									'edit_item' => __('Edit Inspiration', 'inspiration'),
-									'new_item' => __('New Inspiration', 'inspiration'),
-									'view' => __('View Inspiration', 'inspiration'),
-									'view_item' => __('View Inspiration', 'inspiration'),
-									'search_items' => __('Search Inspiration', 'inspiration'),
-									'not_found' => __('No Inspirations found', 'inspiration'),
-									'not_found_in_trash' => __('No Inspirations found in Trash', 'inspiration'),
-							),
-							'public' => true,
-							'hierarchical' => true,
-							'has_archive' => true,
-							'supports' => array(
-									'title',
-									'editor',
-									'thumbnail',
-							),
-							'show_in_rest' => true,
-							'menu_icon' => 'dashicons-images-alt2',
-							'can_export' => true,
-							'taxonomies' => array(
-									'post_tag',
-									'category',
-							),
-							'show_in_graphql' => true,
-							'graphql_single_name' => 'Inspiration',
-							'graphql_plural_name' => 'Inspirations',
-					));
+        register_taxonomy_for_object_type('category', 'inspiration');
+        register_taxonomy_for_object_type('post_tag', 'inspiration');
+        register_post_type('inspiration',
+            array(
+                'labels' => array(
+                    'name' => __('Inspiration', 'inspiration'),
+                    'singular_name' => __('Inspiration', 'inspiration'),
+                    'add_new' => __('Add New', 'inspiration'),
+                    'add_new_item' => __('Add New Inspiration', 'inspiration'),
+                    'edit' => __('Edit', 'inspiration'),
+                    'edit_item' => __('Edit Inspiration', 'inspiration'),
+                    'new_item' => __('New Inspiration', 'inspiration'),
+                    'view' => __('View Inspiration', 'inspiration'),
+                    'view_item' => __('View Inspiration', 'inspiration'),
+                    'search_items' => __('Search Inspiration', 'inspiration'),
+                    'not_found' => __('No Inspirations found', 'inspiration'),
+                    'not_found_in_trash' => __('No Inspirations found in Trash', 'inspiration'),
+                ),
+                'public' => true,
+                'hierarchical' => true,
+                'has_archive' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                ),
+                'show_in_rest' => true,
+                'menu_icon' => 'dashicons-images-alt2',
+                'can_export' => true,
+                'taxonomies' => array(
+                    'post_tag',
+                    'category',
+                ),
+                'show_in_graphql' => true,
+                'graphql_single_name' => 'Inspiration',
+                'graphql_plural_name' => 'Inspirations',
+            ));
 
-			register_taxonomy_for_object_type('category', 'review');
-			register_taxonomy_for_object_type('post_tag', 'review');
-			register_post_type('review',
-					array(
-							'labels' => array(
-									'name' => __('Review', 'review'),
-									'singular_name' => __('Review', 'review'),
-									'add_new' => __('Add New', 'review'),
-									'add_new_item' => __('Add New Review', 'review'),
-									'edit' => __('Edit', 'review'),
-									'edit_item' => __('Edit Review', 'review'),
-									'new_item' => __('New Review', 'review'),
-									'view' => __('View Review', 'review'),
-									'view_item' => __('View Review', 'review'),
-									'search_items' => __('Search Review', 'review'),
-									'not_found' => __('No Reviews found', 'review'),
-									'not_found_in_trash' => __('No Reviews found in Trash', 'review'),
-							),
-							'public' => true,
-							'hierarchical' => true,
-							'has_archive' => true,
-							'supports' => array(
-									'title',
-									'editor',
-									'thumbnail',
-							),
-							'show_in_rest' => true,
-							'menu_icon' => 'dashicons-format-status',
-							'can_export' => true,
-							'taxonomies' => array(
-									'post_tag',
-									'category',
-							),
-							'show_in_graphql' => true,
-							'graphql_single_name' => 'Review',
-							'graphql_plural_name' => 'Reviews',
-					));
-	}
+        register_taxonomy_for_object_type('category', 'review');
+        register_taxonomy_for_object_type('post_tag', 'review');
+        register_post_type('review',
+            array(
+                'labels' => array(
+                    'name' => __('Review', 'review'),
+                    'singular_name' => __('Review', 'review'),
+                    'add_new' => __('Add New', 'review'),
+                    'add_new_item' => __('Add New Review', 'review'),
+                    'edit' => __('Edit', 'review'),
+                    'edit_item' => __('Edit Review', 'review'),
+                    'new_item' => __('New Review', 'review'),
+                    'view' => __('View Review', 'review'),
+                    'view_item' => __('View Review', 'review'),
+                    'search_items' => __('Search Review', 'review'),
+                    'not_found' => __('No Reviews found', 'review'),
+                    'not_found_in_trash' => __('No Reviews found in Trash', 'review'),
+                ),
+                'public' => true,
+                'hierarchical' => true,
+                'has_archive' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                ),
+                'show_in_rest' => true,
+                'menu_icon' => 'dashicons-format-status',
+                'can_export' => true,
+                'taxonomies' => array(
+                    'post_tag',
+                    'category',
+                ),
+                'show_in_graphql' => true,
+                'graphql_single_name' => 'Review',
+                'graphql_plural_name' => 'Reviews',
+            ));
+
+        // Register Custom Series
+        $labels = array(
+            'name' => _x('Series', 'Series', 'series'),
+            'singular_name' => _x('Series', 'Series', 'series'),
+            'menu_name' => __('Series', 'series'),
+            'all_items' => __('All Series', 'series'),
+            'parent_item' => __('Parent Series', 'series'),
+            'parent_item_colon' => __('Parent Series:', 'series'),
+            'new_item_name' => __('New Series Name', 'series'),
+            'add_new_item' => __('Add New Series', 'series'),
+            'edit_item' => __('Edit Series', 'series'),
+            'update_item' => __('Update Series', 'series'),
+            'view_item' => __('View Series', 'series'),
+            'separate_items_with_commas' => __('Separate series with commas', 'series'),
+            'add_or_remove_items' => __('Add or remove series', 'series'),
+            'choose_from_most_used' => __('Choose from the most used', 'series'),
+            'popular_items' => __('Popular Series', 'series'),
+            'search_items' => __('Search Series', 'series'),
+            'not_found' => __('Not Found', 'series'),
+            'no_terms' => __('No Series', 'series'),
+            'items_list' => __('Series list', 'series'),
+            'items_list_navigation' => __('Series list navigation', 'series'),
+        );
+
+        $args = array(
+            'labels' => $labels,
+            'hierarchical' => false,
+            'public' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'show_in_nav_menus' => true,
+            'show_tagcloud' => true,
+        );
+
+        register_taxonomy('series', array('post'), $args);
+    }
 
     public function register_my_menu()
     {
@@ -323,4 +358,3 @@ class StarterSite extends Timber\Site
 }
 
 new StarterSite();
-
