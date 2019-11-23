@@ -40,6 +40,32 @@
 		{
 			"type": "package",
 			"package": {
+				"name": "wp-sync-db/wp-sync-db",
+				"type": "wordpress-plugin",
+				"version": "1.0.0",
+				"source": {
+					"url": "https://github.com/wp-sync-db/wp-sync-db.git",
+					"type": "git",
+					"reference": "master"
+				}
+			}
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "wp-sync-db/wp-sync-db-media-files",
+				"type": "wordpress-plugin",
+				"version": "1.0.0",
+				"source": {
+					"url": "https://github.com/wp-sync-db/wp-sync-db-media-files.git",
+					"type": "git",
+					"reference": "master"
+				}
+			}
+		},
+		{
+			"type": "package",
+			"package": {
 				"name": "wp-graphql/wp-graphql",
 				"type": "wordpress-plugin",
 				"version": "1.0.0",
@@ -112,12 +138,14 @@
 		"roots/wp-config": "1.0.0",
 		"roots/wp-password-bcrypt": "1.0.0",
 		"vlucas/phpdotenv": "^3.4.0",
+		"wp-sync-db/wp-sync-db": "^1.0.0",
+		"wp-sync-db/wp-sync-db-media-files": "^1.0.0",
 		"wp-graphql/wp-graphql": "^0.4.1",
 		"wp-graphql/wp-graphql-acf": "^0.2.0",
 		"wp-graphql/wp-graphiql": "^1.0.0",
 		"ashhitch/wp-graphql-yoast-seo": "1.0.0",
-		"pristas-peter/wp-graphql-gutenberg": "1.0.0",
-		"pristas-peter/wp-graphql-gutenberg-acf": "1.0.0",
+		"pristas-peter/wp-graphql-gutenberg": "^1.0.0",
+		"pristas-peter/wp-graphql-gutenberg-acf": "^1.0.0",
 		"wpackagist-plugin/amazon-s3-and-cloudfront": "^2.1.0",
 		"wpackagist-plugin/disable-gutenberg": "^1.9",
 		"wpackagist-plugin/duplicate-post": "^3.2.3",
@@ -141,6 +169,8 @@
 		"installer-paths": {
 			"web/app/mu-plugins/{$name}/": [
 				"type:wordpress-muplugin",
+				"wp-sync-db/wp-sync-db",
+				"wp-sync-db/wp-sync-db-media-files",
 				"wp-graphql/wp-graphql",
 				"wp-graphql/wp-graphql-acf",
 				"wp-graphql/wp-graphiql",
