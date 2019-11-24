@@ -256,6 +256,9 @@ class StarterSite extends Timber\Site
             'show_admin_column' => true,
             'show_in_nav_menus' => true,
             'show_tagcloud' => true,
+            'show_in_graphql' => true,
+            'graphql_single_name' => 'Series',
+            'graphql_plural_name' => 'Serieses',
         );
 
         register_taxonomy('series', array('post'), $args);
