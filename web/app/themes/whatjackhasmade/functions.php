@@ -219,6 +219,10 @@ class StarterSite extends Timber\Site
                     'post_tag',
                     'category',
                 ),
+                'rewrite' => array(
+                    'slug' => '/',
+                    'with_front' => false,
+                ),
                 'show_in_graphql' => true,
                 'graphql_single_name' => 'Review',
                 'graphql_plural_name' => 'Reviews',
