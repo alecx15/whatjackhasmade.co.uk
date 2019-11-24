@@ -224,33 +224,33 @@ class StarterSite extends Timber\Site
                 'graphql_plural_name' => 'Reviews',
             ));
 
-        // Register Custom Series
+        // Register Custom Series Taxonomy
         $labels = array(
-            'name' => _x('Series', 'Series', 'series'),
-            'singular_name' => _x('Series', 'Series', 'series'),
-            'menu_name' => __('Series', 'series'),
-            'all_items' => __('All Series', 'series'),
-            'parent_item' => __('Parent Series', 'series'),
-            'parent_item_colon' => __('Parent Series:', 'series'),
-            'new_item_name' => __('New Series Name', 'series'),
-            'add_new_item' => __('Add New Series', 'series'),
-            'edit_item' => __('Edit Series', 'series'),
-            'update_item' => __('Update Series', 'series'),
-            'view_item' => __('View Series', 'series'),
-            'separate_items_with_commas' => __('Separate series with commas', 'series'),
-            'add_or_remove_items' => __('Add or remove series', 'series'),
-            'choose_from_most_used' => __('Choose from the most used', 'series'),
-            'popular_items' => __('Popular Series', 'series'),
-            'search_items' => __('Search Series', 'series'),
-            'not_found' => __('Not Found', 'series'),
-            'no_terms' => __('No Series', 'series'),
-            'items_list' => __('Series list', 'series'),
-            'items_list_navigation' => __('Series list navigation', 'series'),
+            'name' => _x('Serieses', 'Series General Name', 'text_domain'),
+            'singular_name' => _x('Series', 'Series Singular Name', 'text_domain'),
+            'menu_name' => __('Series', 'text_domain'),
+            'all_items' => __('All Items', 'text_domain'),
+            'parent_item' => __('Parent Item', 'text_domain'),
+            'parent_item_colon' => __('Parent Item:', 'text_domain'),
+            'new_item_name' => __('New Item Name', 'text_domain'),
+            'add_new_item' => __('Add New Item', 'text_domain'),
+            'edit_item' => __('Edit Item', 'text_domain'),
+            'update_item' => __('Update Item', 'text_domain'),
+            'view_item' => __('View Item', 'text_domain'),
+            'separate_items_with_commas' => __('Separate items with commas', 'text_domain'),
+            'add_or_remove_items' => __('Add or remove items', 'text_domain'),
+            'choose_from_most_used' => __('Choose from the most used', 'text_domain'),
+            'popular_items' => __('Popular Items', 'text_domain'),
+            'search_items' => __('Search Items', 'text_domain'),
+            'not_found' => __('Not Found', 'text_domain'),
+            'no_terms' => __('No items', 'text_domain'),
+            'items_list' => __('Items list', 'text_domain'),
+            'items_list_navigation' => __('Items list navigation', 'text_domain'),
         );
 
         $args = array(
             'labels' => $labels,
-            'hierarchical' => false,
+            'hierarchical' => true,
             'public' => true,
             'show_ui' => true,
             'show_admin_column' => true,
@@ -261,7 +261,7 @@ class StarterSite extends Timber\Site
             'graphql_plural_name' => 'Serieses',
         );
 
-        register_taxonomy('series', array('post'), $args);
+        register_taxonomy('taxonomy_series', array('post'), $args);
     }
 
     public function register_my_menu()
