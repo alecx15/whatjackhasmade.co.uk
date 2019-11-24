@@ -219,10 +219,6 @@ class StarterSite extends Timber\Site
                     'post_tag',
                     'category',
                 ),
-                'rewrite' => array(
-                    'slug' => '/',
-                    'with_front' => false,
-                ),
                 'show_in_graphql' => true,
                 'graphql_single_name' => 'Review',
                 'graphql_plural_name' => 'Reviews',
@@ -263,6 +259,10 @@ class StarterSite extends Timber\Site
             'show_in_graphql' => true,
             'graphql_single_name' => 'Series',
             'graphql_plural_name' => 'Serieses',
+            'rewrite' => array(
+                'slug' => '/',
+                'with_front' => false,
+            ),
         );
 
         register_taxonomy('taxonomy_series', array('post'), $args);
