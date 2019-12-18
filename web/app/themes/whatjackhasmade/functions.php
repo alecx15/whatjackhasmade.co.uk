@@ -285,8 +285,8 @@ class StarterSite extends Timber\Site
     {
         if (function_exists('acf_register_block')) {
 
-            $blockies = array('dribbble', 'github', 'hero', 'intro', 'link', 'presentations', 'row', 'testimonials', 'youtube', 'youtubeChannel');
-            $blockiesIcons = array('admin-customizer', 'screenoptions', 'align-center', 'editor-alignleft', 'migrate', 'format-chat', 'align-left', 'format-quote', 'format-video', 'format-video');
+            $blockies = array('code', 'dribbble', 'github', 'hero', 'intro', 'link', 'presentations', 'row', 'testimonials', 'youtube', 'youtubeChannel');
+            $blockiesIcons = array('editor-code', 'admin-customizer', 'screenoptions', 'align-center', 'editor-alignleft', 'migrate', 'format-chat', 'align-left', 'format-quote', 'format-video', 'format-video');
 
             $blockies = array_combine($blockies, $blockiesIcons);
 
